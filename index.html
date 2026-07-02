@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROJECT J 🤍</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+
+    <section class="screen active lock-screen" id="lockScreen">
+      <p class="top-secret">CP CONFIDENTIAL</p>
+      <h1>PROJECT J</h1>
+      <p class="status">STATUS : LOCKED 🔒</p>
+
+      <div class="password-box">
+        <label>Enter Password</label>
+        <input id="passwordInput" type="password" placeholder="รหัสลับของเรา" />
+        <p class="hint">Hint: คนที่เคยเรียกพี่ว่า sunshine 🌞</p>
+        <button onclick="checkPassword()">Unlock</button>
+        <p class="error" id="errorText"></p>
+      </div>
+    </section>
+
+    <section class="screen loading-screen" id="loadingScreen">
+      <h1>Access Granted 🔓</h1>
+      <p id="loadingText">Decrypting memories...</p>
+      <div class="bar"><div class="progress" id="progress"></div></div>
+    </section>
+
+    <section class="screen story-screen" id="screen1">
+      <p class="mini">hi, jia 🤍</p>
+      <h1>มีอะไรอยากให้น้องดู</h1>
+      <p>ไม่ใช่งาน ไม่ใช่ KPI<br>ไม่ใช่ไฟล์ลับบริษัท<br>แต่เป็นเรื่องลับของพี่</p>
+      <button onclick="nextScreen()">เปิดดูต่อ</button>
+    </section>
+
+    <section class="screen story-screen" id="screen2">
+      <p class="mini">chapter 01</p>
+      <h1>ตั้งแต่ได้รู้จักน้อง</h1>
+      <p>วันธรรมดาหลาย ๆ วัน<br>มันน่ารักขึ้นแบบไม่รู้ตัว<br>เพราะมีน้องอยู่ในนั้น</p>
+      <button onclick="nextScreen()">ต่อไป</button>
+    </section>
+
+    <section class="screen story-screen" id="screen3">
+      <p class="mini">things i like about you</p>
+      <h1>สิ่งที่พี่ชอบในตัวน้อง</h1>
+      <div class="cards">
+        <div>เวลาน้องตั้งใจฟัง</div>
+        <div>เวลาน้องเป็นตัวเอง</div>
+        <div>เวลาน้องเรียกพี่ว่า sunshine 🌞</div>
+        <div>เวลาที่แค่เห็นชื่อน้องเด้งมา พี่ก็ยิ้มแล้ว</div>
+      </div>
+      <button onclick="nextScreen()">ยังมีอีก</button>
+    </section>
+
+    <section class="screen story-screen" id="screen4">
+      <p class="mini">warning</p>
+      <h1>พี่ไม่ได้อยากเป็นแค่คนคุยแล้ว</h1>
+      <p>พี่ไม่ได้ถามเพราะอยากกดดัน<br>แต่ถามเพราะพี่มั่นใจในความรู้สึกตัวเองแล้ว</p>
+      <button onclick="nextScreen()">ไปหน้าสุดท้าย</button>
+    </section>
+
+    <section class="screen story-screen question" id="screen5">
+      <p class="mini">final question</p>
+      <h1>เจีย...</h1>
+      <h2>จะเป็นแฟนกับพี่ได้ไหม 🤍</h2>
+      <div class="button-row">
+        <button class="yes" onclick="sayYes()">เป็น ❤️</button>
+        <button class="maybe" id="maybeBtn">ขอคิดก่อน</button>
+      </div>
+      <p class="hint-small">*ปุ่มขอคิดก่อนอาจจะดื้อหน่อยนะ</p>
+    </section>
+
+    <section class="screen story-screen final" id="screen6">
+      <h1>เย้ 🤍</h1>
+      <p>ขอบคุณที่เลือกพี่นะ<br>ต่อจากนี้ขอเป็นคนดูแลน้อง<br>ในฐานะแฟนนะ</p>
+      <div class="big-heart">❤️</div>
+      <p class="mini">officially my girlfriend</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 112, 160, .35), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 220, 150, .35), transparent 28%),
+    linear-gradient(145deg, #151119, #2b1823 45%, #fff3f6 160%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.app {
+  width: min(92vw, 430px);
+  min-height: 660px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 36px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.38);
+  backdrop-filter: blur(22px);
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeUp .7s ease;
+}
+
+.screen.active { display: flex; }
+
+.top-secret {
+  letter-spacing: 4px;
+  font-size: 12px;
+  color: #ff9dbb;
+  border: 1px solid rgba(255,157,187,.55);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.status {
+  color: #ffd6e2;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+.password-box {
+  width: 100%;
+  background: rgba(255,255,255,.12);
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.16);
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #ffe4ec;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 18px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,.94);
+  color: #35242a;
+}
+
+h1 { font-size: 36px; line-height: 1.16; margin: 10px 0 16px; }
+h2 { font-size: 27px; margin: 8px 0 28px; }
+p { font-size: 18px; line-height: 1.7; }
+
+button {
+  border: 0;
+  padding: 15px 25px;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  background: #fff;
+  color: #351d27;
+  box-shadow: 0 16px 30px rgba(0,0,0,.18);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:hover { transform: translateY(-3px) scale(1.03); }
+
+.error {
+  min-height: 24px;
+  color: #ffd1dc;
+  font-size: 14px;
+  margin: 14px 0 0;
+}
+
+.hint {
+  font-size: 14px;
+  color: #ffdbe7;
+  margin: 0 0 18px;
+}
+
+.bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,.20);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff7aa8, #ffe1a8);
+  border-radius: 999px;
+  transition: width .35s ease;
+}
+
+.story-screen {
+  color: #3d2b2b;
+  background:
+    radial-gradient(circle at 20% 10%, #ffe0ec, transparent 30%),
+    linear-gradient(135deg, #fffaf8, #ffeef4);
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+}
+
+.mini {
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  color: #ff6f9f;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin: 10px 0 28px;
+}
+
+.cards div {
+  background: rgba(255,255,255,.85);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 10px 22px rgba(255,120,160,.16);
+  animation: pop .7s ease both;
+}
+
+.cards div:nth-child(2) { animation-delay: .1s; }
+.cards div:nth-child(3) { animation-delay: .2s; }
+.cards div:nth-child(4) { animation-delay: .3s; }
+
+.button-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.yes { background: linear-gradient(135deg, #ff6f9f, #ff9bb8); color: white; }
+.maybe { background: #eee; color: #4b3b3b; position: relative; }
+
+.hint-small { margin-top: 24px; font-size: 13px; color: #8b7373; }
+.big-heart { font-size: 88px; animation: heartbeat 1s infinite; }
+
+.float-item {
+  position: fixed;
+  top: -20px;
+  font-size: 18px;
+  opacity: .8;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pop { from { opacity: 0; transform: scale(.9) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+.shake { animation: shake .35s ease; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+
+@media (max-width: 430px) {
+  .app { min-height: 610px; padding: 22px; }
+  .screen { min-height: 560px; }
+  h1 { font-size: 31px; }
+  p { font-size: 16px; }
+}
